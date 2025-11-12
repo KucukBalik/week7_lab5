@@ -27,11 +27,20 @@ public class PersonController {
         return personService.findAll();
     }
 
-    @GetMapping("/{employeeId}")
-    public Person findById(@PathVariable("employeeId") String employeeId) {
-        return personService.findById(employeeId);
+    @GetMapping("/{id}")
+    public Person findById(@PathVariable("id") Long id) {
+        return personService.findById(id);
     }
 
+    @PutMapping("/{id}")
+    public Person update(@PathVariable Long id, @RequestBody Person person) {
+        return personService.update(id, person);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        personService.delete(id);
+    }
 
 
 
