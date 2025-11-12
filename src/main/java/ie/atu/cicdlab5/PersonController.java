@@ -21,4 +21,18 @@ public class PersonController {
         return personService.create(person);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Person> findAll() {
+        return personService.findAll();
+    }
+
+    @GetMapping("/{employeeId}")
+    public Person findById(@PathVariable("employeeId") String employeeId) {
+        return personService.findById(employeeId);
+    }
+
+
+
+
 }

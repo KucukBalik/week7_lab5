@@ -18,7 +18,16 @@ public class PersonService {
     public Person create(@Valid @RequestBody Person person) {
         return personRepository.save(person);
     }
-/*
+
     public List<Person> findAll() {
-    }*/
+
+        return personRepository.findAll();
+
+    }
+
+    public Person findById(String id) {
+        return personRepository.findByEmployeeId(id).orElseThrow(() -> new IllegalArgumentException("Person with id " + id + "not found"));
+    }
+
+
 }
